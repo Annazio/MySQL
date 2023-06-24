@@ -35,7 +35,7 @@ WHERE id NOT IN (
 -- 4) найдите имя и фамилию покупателя, который сделал самый дорогой заказ
 
 SELECT 
-	t1.name, 
+    t1.name, 
     t1.lastname
 FROM customers t1
 INNER JOIN orders t2
@@ -44,9 +44,9 @@ WHERE t2.id =
 		(SELECT 
 		    t2.id
 		FROM orders t2
-        ORDER BY productcount*(
-								SELECT t3.price 
+                ORDER BY productcount*(
+				SELECT t3.price 
                                 FROM products t3 
                                 WHERE t3.id = t2.productid)
-                                DESC LIMIT 1);
+                DESC LIMIT 1);
 
